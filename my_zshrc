@@ -105,6 +105,11 @@ if [ -f ~/.ssh/known_hosts ]; then
   zstyle ':completion:*:*:(ssh|scp):*:*' hosts `sed 's/^\([^ ,]*\).*$/\1/' ~/.ssh/known_hosts`
 fi
 #end of completion related stuff
+export EC2_HOME=$HOME/.ec2
+export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
+export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+
 
 # Aliases
 alias g='git'
@@ -125,6 +130,7 @@ alias gf="git fetch"
 alias s="sake"
 alias gitx="open -a GitX.app"
 alias be="bundle exec"
+alias bec="bundle exec cucumber"
 
 alias psr="ps axu|grep ruby"
 alias ..2="cd ../.."
@@ -134,13 +140,16 @@ alias screen="screen -h 5000"
 alias emacs="open -a Emacs.app"
 alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait"
 alias sl="cd ~/checkout/solaro/"
-alias sca="cd ~/checkout/securo_admin/"
+alias sa="cd ~/checkout/securo_admin"
+alias sp="cd ~/checkout/securo_payment_middleware"
+alias st="cd ~/nomads/showtime/"
 alias sn="cd ~/checkout/snippets/"
 alias ls="ls -G"
 alias rss="ruby ./script/console"
+alias t="ctags -h '[".rb.js"]' --exclude=vendor -e -R ."
 export EDITOR="vim"
 
-export PATH=$HOME/bin:/opt/ruby-enterprise-1.8.7-2010.02/bin:/opt/git/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/scala/bin:$HOME/android-sdk-mac/tools:$PATH
+export PATH=$HOME/bin:/opt/ruby-enterprise-1.8.7-2010.02/bin:/opt/git/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/scala/bin:/Library/PostgreSQL/9.0/bin:$HOME/android-sdk-mac_86/tools:$EC2_HOME/bin:$PATH
 
 
 

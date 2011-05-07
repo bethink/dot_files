@@ -4,7 +4,11 @@ require "rake"
 require "rake/tasklib"
 require "colored"
 require "fileutils"
-require "mysql"
+begin
+  require "mysql"
+rescue LoadError
+end
+
 require "grit"
 
 class Object
@@ -222,6 +226,16 @@ task :run_ruby do
   ruby "~/checkout/solaro/sandbox/benchmark_find_select.rb"
 end
 
+desc 'delete files'
+task :df do 
+  folder = ENV['dir']
+  pattern = ENV['pattern'] || 'rb'
+  count = (ENV['count'] || 12).to_i
+  Dir["#{folder}/**/*.#{pattern}"].each_with_index do |file,index|
+    FileUtils.rm(file) if index > count
+  end
+end
+
 desc "sandbox db"
 task :box_db do
   db = ENV['db'] || 'sandbox'
@@ -287,10 +301,12 @@ module Sake
         result = connection.real_query("show tables")
         tables = []
         result.each_hash { |table| tables << table.values.first }
+        connection.real_query("set foreign_key_checks = 0;")
         tables.each do |table|
           puts "Truncating #{table}"
           connection.real_query("truncate #{table}")
         end
+        connection.real_query("set foreign_key_checks = 1;")
       ensure
         connection.close()
       end

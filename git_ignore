@@ -5,4 +5,6 @@ tags
 jferris-*.gemspec
 *.scratch.*
 nbproject
+.idea
+
 
