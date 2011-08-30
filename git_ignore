@@ -6,5 +6,6 @@ jferris-*.gemspec
 *.scratch.*
 nbproject
 .idea
+.DS_Store
 
 

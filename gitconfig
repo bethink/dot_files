@@ -8,7 +8,7 @@
 	branch = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim
+	editor = emacs
 [alias]
   ci = commit        
   co = checkout
@@ -25,9 +25,15 @@
 
 [user]
 	name = Hemant Kumar
-	email = hkumar@crri.co.in
+	email = gethemant@gmail.com
 [mergetool "diffmerge"]
 	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
 	trustExitCode = false
 [github]
 	user = gnufied
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
