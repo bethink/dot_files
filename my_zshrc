@@ -136,15 +136,15 @@ alias r="rake"
 alias screen="screen -h 5000"
 alias emacs="emacs -nw -Q"
 alias xemacs="open -a Emacs.app"
-alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait"
+alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias st="cd ~/nomads/showtime/"
 alias sn="cd ~/checkout/snippets/"
 alias bbh="cd ~/brightbox/honcho"
 alias ls="ls -G"
 alias rss="ruby ./script/console"
 alias t="ctags -h '[".rb.js"]' --exclude=vendor -e -R ."
-export EDITOR="emacs"
-export GIT_EDITOR="emacs -nw -Q"
+export EDITOR="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+export GIT_EDITOR="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 
