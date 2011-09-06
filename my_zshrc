@@ -132,6 +132,6 @@ alias r="rake"
 alias screen="screen -h 5000"
 alias ls="ls -G"
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:/opt/ruby/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
