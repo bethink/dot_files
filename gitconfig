@@ -8,7 +8,7 @@
 	branch = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+	editor = fast_emacs
 [alias]
   ci = commit        
   co = checkout

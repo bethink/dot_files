@@ -144,7 +144,7 @@ alias ls="ls -G"
 alias rss="ruby ./script/console"
 alias t="ctags -h '[".rb.js"]' --exclude=vendor -e -R ."
 export EDITOR="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-export GIT_EDITOR="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+export GIT_EDITOR="fast_emacs"
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 
