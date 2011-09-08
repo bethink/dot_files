@@ -7,7 +7,7 @@ if [ ! -n "$1" ]
 fi
 search_string=$1
 echo -e ''"\033[1m************** :: Search Results for ${search_string} :: ************* \033[0m"
-find . -type f |egrep -v '\.(svn|png|jpg|jpeg|o|git|so|class|elc|rbx|rbc)'|while read x;
+find . -type f |egrep -v '\.(svn|png|jpg|jpeg|o|git|so|class|elc|rbx|rbc|a|bundle|dylib)'|while read x;
 #for x in `find . -type f |egrep -v '\.(svn|png|jpg|jpeg|o|git|so)'`
 do
     if [ `egrep -c -e "$search_string" "$x"` -ne 0 ]
