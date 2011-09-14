@@ -27,13 +27,7 @@ export CC=/usr/bin/gcc-4.2
 
 function precmd() {
     head_info=$(git symbolic-ref HEAD 2> /dev/null)
-    rvm_use=$(rvm info|egrep -C 1 'homes'|grep 'gem'|cut -d\: -f 2|cut -d\" -f 2 )
-    
-    if [[ $rvm_use =~ 'not set' ]]; then
-	rvm_flag='system'
-    else
-	rvm_flag=$rvm_use[(ws:/:)-1]
-    fi
+    rvm_flag=$(rbenv version|cut -f 1 -d \ )
     RPROMPT='$PR_RED$rvm_flag$PR_NO_COLOUR'
     if [[ $head_info =~ '^refs*' ]]; then
 	branch_name=$head_info[(ws:/:)-1]
@@ -142,7 +136,7 @@ alias t="ctags -h '[".rb.js"]' --exclude=vendor -e -R ."
 export EDITOR="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 export GIT_EDITOR="fast_emacs"
 
-export PATH=$HOME/bin:/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
+export PATH=$HOME/bin:$HOME/.rbenv/bin:/opt/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
+eval "$(rbenv init -)"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "$HOME/.screeninator/scripts/screeninator" ]] && source "$HOME/.screeninator/scripts/screeninator"

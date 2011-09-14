@@ -8,7 +8,7 @@
 	branch = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = fast_emacs
+	editor = vim
 [alias]
   ci = commit        
   co = checkout
