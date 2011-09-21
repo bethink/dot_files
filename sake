@@ -20,7 +20,7 @@ class Object
   def present?
     !blank?
   end
-  
+
   def presence
     self if present?
   end
@@ -171,14 +171,14 @@ end
 desc "Globally available task list"
 task :default do
   Rake.application.tasks.each do |task|
-    puts sprintf("%-25s : %s",task.name.bold.red,task.comment.blue)
+    puts sprintf("%-25s : %s",task.name.bold.red,task.comment || "runs #{task.name}".blue)
   end
 end
 
 desc "Update solaro"
 task :sl do
   solaro_dir = File.join(ENV['HOME'],'checkout','solaro')
-  cd(solaro_dir) do 
+  cd(solaro_dir) do
     system("git fetch")
     Rake.application.invoke_task("gm")
   end
@@ -227,7 +227,7 @@ task :run_ruby do
 end
 
 desc 'delete files'
-task :df do 
+task :df do
   folder = ENV['dir']
   pattern = ENV['pattern'] || 'rb'
   count = (ENV['count'] || 12).to_i
@@ -294,7 +294,7 @@ module Sake
     def truncate_db(db,username = 'root',password = '', host = 'localhost')
       puts "Truncating Database :  ".bold + db.red.bold
       puts "** Press enter to continue **".green.bold
-      
+
       STDIN.getc
       begin
         connection = Mysql.connect(host,username,password,db)
@@ -326,7 +326,3 @@ end
 @git_help = Sake::Git.new()
 
 Rake.application.top_level()
-
-
-
-
