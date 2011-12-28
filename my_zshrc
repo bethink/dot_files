@@ -130,7 +130,7 @@ alias ..2="cd ../.."
 alias ..3="cd ../../.."
 alias r="rake"
 alias screen="screen -h 5000"
-alias ls="ls -G"
+alias ls="ls --color=always"
 
 export PATH=$HOME/bin:/opt/ruby/bin:$PATH
 
