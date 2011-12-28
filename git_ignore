@@ -7,5 +7,7 @@ jferris-*.gemspec
 nbproject
 .idea
 .DS_Store
+.rbenv-version
+*.iml
 
 
