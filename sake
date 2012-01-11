@@ -75,6 +75,13 @@ task :gp do
   system("git push origin #{branch_name}")
 end
 
+desc "Force push current branch"
+task :gpf do
+  branch_name = @git_help.current_branch
+  puts "Force pushing branch #{branch_name}"
+  system("git push origin #{branch_name} --force")
+end
+
 desc "Merge remote of current with current branch"
 task :gm do
   branch_name = @git_help.current_branch
